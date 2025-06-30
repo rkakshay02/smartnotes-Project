@@ -1,7 +1,57 @@
-<html>
-    <h1>these are notes section</h1>
-    <ul>{% for notes in notes%}
-        <li>{{notes.title}}</li>
-        {% endfor%}
-    </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Available Notes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        li:hover {
+            background-color: #d0e6f7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>These Are the Notes Available:</h1>
+        <ol>
+            {% for notes in notes %}
+                <li>{{ notes.title }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+</body>
 </html>

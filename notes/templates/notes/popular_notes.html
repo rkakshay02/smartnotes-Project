@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popular Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .notes-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .note-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: left;
+            transition: transform 0.2s;
+        }
+
+        .note-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .note-title {
+            font-size: 20px;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+
+        .note-text {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .note-likes {
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔥 Popular Notes</h1>
+
+    <div class="notes-list">
+        {% for note in notes %}
+            <div class="note-card">
+                <div class="note-title">{{ note.title }}</div>
+                <div class="note-text">{{ note.text }}</div>
+                <div class="note-likes">👍 {{ note.likes }} likes</div>
+            </div>
+        {% empty %}
+            <p>No popular notes found.</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
