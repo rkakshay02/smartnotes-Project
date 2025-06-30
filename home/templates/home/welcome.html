@@ -26,11 +26,27 @@
         h3 {
             color: #555;
             font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <h1>Welcome to SmartNotes</h1>
     <h3>Today is {{ today }}</h3>
+    <a href="{% url 'notes.list' %}" class="btn">Check out these smart notes!</a>
 </body>
 </html>

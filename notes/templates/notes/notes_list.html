@@ -42,16 +42,49 @@
         li:hover {
             background-color: #d0e6f7;
         }
+
+        a.note-link {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        a.note-link:hover {
+            text-decoration: underline;
+            color: #007bff;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>These Are the Notes Available:</h1>
         <ol>
-            {% for notes in notes %}
-                <li>{{ notes.title }}</li>
+            {% for note in notes %}
+                <li>
+                    <a href="{% url 'notes.detail' note.id %}" class="note-link">{{ note.title }}</a>
+                </li>
+            {% empty %}
+                <li>No notes available.</li>
             {% endfor %}
         </ol>
+
+        <!-- Link to popular notes -->
+        <a href="{% url 'notes.popular' %}" class="btn">Check out Popular Notes</a>
     </div>
 </body>
 </html>
